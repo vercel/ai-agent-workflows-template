@@ -102,21 +102,21 @@ ai-agent-workflows-template/
 2. Get API key from: `vercel.com/[team]/settings/ai-gateway`
 3. Add to `.env`: `VERCEL_AI_GATEWAY_API_KEY=...`
 
-### Database (Section 4.2)
-Choose one:
-- Vercel Postgres
-- Neon
-- Supabase
+### Database + Vector Search (Section 4)
 
-Add connection string to `.env`: `DATABASE_URL=...`
+**Recommended:** [Neon Postgres](https://vercel.com/marketplace/neon) with pgvector extension
 
-### Vector Database (Section 4.3)
-Choose one:
-- Pinecone
-- Qdrant
-- Weaviate
+1. Add Neon from [Vercel Marketplace](https://vercel.com/marketplace/neon)
+2. Enable pgvector extension automatically
+3. Connection string auto-configured in `.env`: `DATABASE_URL=...`
 
-Add credentials to `.env`.
+**Why Neon:**
+- Built-in pgvector for semantic search (no separate vector DB needed)
+- Serverless Postgres with automatic scaling
+- Free tier includes pgvector
+- One database instead of two services
+
+**Alternatives:** Vercel Postgres, Supabase (both support pgvector)
 
 ## Deployment
 
